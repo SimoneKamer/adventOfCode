@@ -25,7 +25,7 @@ public class BathroomLockDecoderTest {
 
     @Test
     public void fromStartingPointRightMakes6() {
-        assertThat(decoder.findBathroomCode("R"),is(4));
+        assertThat(decoder.findBathroomCode("R"),is(6));
     }
 
 

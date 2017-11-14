@@ -13,6 +13,9 @@ public class BathroomLockDecoder {
             case "L":
                 currentPosition--;
                 break;
+            case  "R":
+                currentPosition++;
+                break;
         }
     return currentPosition;
     }
