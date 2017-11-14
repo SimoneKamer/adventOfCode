@@ -18,4 +18,9 @@ public class BathroomLockDecoderTest {
         assertThat(decoder.findBathroomCode("D"),is(8));
     }
 
+    @Test
+    public void fromStartingPointLeftMakes4() {
+        assertThat(decoder.findBathroomCode("L"),is(4));
+    }
+
 }
