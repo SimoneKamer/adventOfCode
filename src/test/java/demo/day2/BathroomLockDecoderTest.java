@@ -9,8 +9,13 @@ public class BathroomLockDecoderTest {
     BathroomLockDecoder decoder = new BathroomLockDecoder();
 
     @Test
-    public void itShouldAnswer2() {
+    public void fromStartingPointUpMakes2() {
         assertThat(decoder.findBathroomCode("U"),is(2));
+    }
+
+    @Test
+    public void fromStartingPointDownMakes8() {
+        assertThat(decoder.findBathroomCode("D"),is(8));
     }
 
 }
