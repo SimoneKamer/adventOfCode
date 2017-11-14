@@ -3,11 +3,17 @@ package demo.day2;
 public class BathroomLockDecoder {
     Integer findBathroomCode(String bathroomInstructions){
         int currentPosition = 5;
-        if (bathroomInstructions == "U"){
-            currentPosition = 3;
-            } else {
-            currentPosition = 8;
-            }
+        switch (bathroomInstructions) {
+            case "U":
+                currentPosition -= 3;
+                break;
+            case "D":
+                currentPosition += 3;
+                break;
+            case "L":
+                currentPosition--;
+                break;
+        }
     return currentPosition;
     }
 
