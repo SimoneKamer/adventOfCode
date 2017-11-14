@@ -1,9 +1,20 @@
 package demo.day2;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class BathroomLockDecoder {
     Integer findBathroomCode(String bathroomInstructions){
         int currentPosition = 5;
-        switch (bathroomInstructions) {
+        List<String> separateInstructions = Arrays.asList(bathroomInstructions.split(""));
+        for (String instruction : separateInstructions) {
+            currentPosition = followInstruction(instruction, currentPosition);
+        }
+    return currentPosition;
+    }
+
+    private int followInstruction(String instruction, int currentPosition) {
+        switch (instruction) {
             case "U":
                 currentPosition -= 3;
                 break;
@@ -13,13 +24,12 @@ public class BathroomLockDecoder {
             case "L":
                 currentPosition--;
                 break;
-            case  "R":
+            case "R":
                 currentPosition++;
                 break;
         }
-    return currentPosition;
+        return currentPosition;
     }
-
 
 
 //        String bathroomInstructions = "RDLULDLDDRLLLRLRULDRLDDRRRRURLRLDLULDLDLDRULDDLLDRDRUDLLDDRDULLLULLDULRRLDURULDRUULLLUUDURURRDDLDLDRRDDLRURLLDRRRDULDRULURURURURLLRRLUDULDRULLDURRRLLDURDRRUUURDRLLDRURULRUDULRRRRRDLRLLDRRRDLDUUDDDUDLDRUURRLLUDUDDRRLRRDRUUDUUULDUUDLRDLDLLDLLLLRRURDLDUURRLLDLDLLRLLRULDDRLDLUDLDDLRDRRDLULRLLLRUDDURLDLLULRDUUDRRLDUDUDLUURDURRDDLLDRRRLUDULDULDDLLULDDDRRLLDURURURUUURRURRUUDUUURULDLRULRURDLDRDDULDDULLURDDUDDRDRRULRUURRDDRLLUURDRDDRUDLUUDURRRLLRR\n" +

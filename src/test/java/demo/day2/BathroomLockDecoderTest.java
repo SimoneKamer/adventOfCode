@@ -28,5 +28,10 @@ public class BathroomLockDecoderTest {
         assertThat(decoder.findBathroomCode("R"),is(6));
     }
 
+    @Test
+    public void handleTwoSubsequentInstructions() {
+        assertThat(decoder.findBathroomCode("RU"),is(3));
+    }
+
 
 }
