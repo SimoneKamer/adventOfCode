@@ -16,7 +16,7 @@ public class BathroomLockDecoder {
     private int followInstruction(String instruction, int currentPosition) {
         switch (instruction) {
             case "U":
-                currentPosition -= 3;
+                if (currentPosition>3) {currentPosition -= 3;}
                 break;
             case "D":
                 currentPosition += 3;
