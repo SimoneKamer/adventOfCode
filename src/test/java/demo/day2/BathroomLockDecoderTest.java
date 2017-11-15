@@ -39,6 +39,9 @@ public class BathroomLockDecoderTest {
     @Test
     public void goingDownAtLastRow() {assertThat(decoder.findBathroomCode("DD"),is(8));}
 
+    @Test
+    public void goingLeftAtFirstColumn() {assertThat(decoder.findBathroomCode("LL"),is(4));}
+
 // handle "corner cases" up at 1,2,3 / down at 7,8,9 / left at 1,4,7 / right at 3,6,9
 // test all examples in day2
 // handle end of line / total: make PSVM

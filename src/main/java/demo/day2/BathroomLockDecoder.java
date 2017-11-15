@@ -22,7 +22,9 @@ public class BathroomLockDecoder {
                 if (currentPosition<7) {currentPosition += 3;}
                 break;
             case "L":
-                currentPosition--;
+                if ((currentPosition == 1)||(currentPosition == 4)||(currentPosition == 7)) {
+                    } else {
+                currentPosition--;}
                 break;
             case "R":
                 currentPosition++;
