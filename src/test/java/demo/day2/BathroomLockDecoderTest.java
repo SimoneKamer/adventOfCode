@@ -42,7 +42,22 @@ public class BathroomLockDecoderTest {
     @Test
     public void goingLeftAtFirstColumn() {assertThat(decoder.findBathroomCode("LL"),is(4));}
 
-// handle "corner cases" up at 1,2,3 / down at 7,8,9 / left at 1,4,7 / right at 3,6,9
-// test all examples in day2
+    @Test
+    public void goingRightAtLastColumn() {assertThat(decoder.findBathroomCode("RR"),is(6));}
+
+    @Test
+    public void firstExample() {assertThat(decoder.findBathroomCode("ULL"),is(1));}
+
+    @Test
+    public void secondExample() {assertThat(decoder.findBathroomCode("ULLRRDDD"),is(9));}
+
+    @Test
+    public void thirdExample() {assertThat(decoder.findBathroomCode("ULLRRDDDLURDL"),is(8));}
+
+    @Test
+    public void fourthExample() {assertThat(decoder.findBathroomCode("ULLRRDDDLURDLUUUUD"),is(5));}
+
+    // make sure the next instruction starts at the end of the former instruction
+    // test all examples in day2
 // handle end of line / total: make PSVM
 }
