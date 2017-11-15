@@ -19,7 +19,7 @@ public class BathroomLockDecoder {
                 if (currentPosition>3) {currentPosition -= 3;}
                 break;
             case "D":
-                currentPosition += 3;
+                if (currentPosition<7) {currentPosition += 3;}
                 break;
             case "L":
                 currentPosition--;
