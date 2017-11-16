@@ -30,18 +30,26 @@ public class KeyPad {
     }
 
     public void moveUp() {
-        y--;
+        if (y > 0) {
+            y--;
+        }
     }
 
     public void moveLeft() {
-        x--;
+        if (x>0) {
+            x--;
+        }
     }
 
     public void moveRight() {
-        x++;
+        if (x<2){
+            x++;
+        }
     }
 
     public void moveDown() {
-        y++;
+        if (y<2) {
+            y++;
+        }
     }
 }
