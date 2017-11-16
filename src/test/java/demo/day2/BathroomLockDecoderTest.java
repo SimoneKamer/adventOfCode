@@ -6,7 +6,7 @@ import static org.hamcrest.Matchers.is;
 
 
 public class BathroomLockDecoderTest {
-    BathroomLockDecoder decoder = new BathroomLockDecoder();
+    BathroomLockDecoder decoder = new BathroomLockDecoder(new ImaginaryKeyPad());
 
     @Test
     public void fromStartingPointUpMakes2() {
@@ -56,6 +56,11 @@ public class BathroomLockDecoderTest {
 
     @Test
     public void fourthExample() {assertThat(decoder.findBathroomCode("ULL\nRRDDD\nLURDL\nUUUUD"),is("1985"));}
+
+    @Test
+    public void fourthExampleonRealKeyPad() {
+        BathroomLockDecoder decoder = new BathroomLockDecoder(new RealKeyPad());
+        assertThat(decoder.findBathroomCode("ULL\nRRDDD\nLURDL\nUUUUD"),is("5DB3"));}
 
     @Test
     public void actualDirections() {

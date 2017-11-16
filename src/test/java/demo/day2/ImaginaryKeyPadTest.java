@@ -5,9 +5,9 @@ import org.junit.Test;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.*;
 
-public class KeyPadTest {
+public class ImaginaryKeyPadTest {
 
-    KeyPad keyPad = new KeyPad();
+    KeyPad keyPad = new ImaginaryKeyPad();
 
     @Test
     public void itShouldTellCharacterOfCurrentKey() throws Exception {
