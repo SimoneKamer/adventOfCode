@@ -4,25 +4,23 @@ import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Table;
 
 public abstract class AbstractKeyPad implements KeyPad {
-    protected int x;
-    protected int y;
+    private int x;
+    private int y;
 
-    public AbstractKeyPad(int x, int y) {
+    AbstractKeyPad(int x, int y) {
         this.x = x;
         this.y = y;
     }
 
-
-    protected Table<Integer, Integer, Key> keyPad = HashBasedTable.create();
+    private Table<Integer, Integer, String> keyPad = HashBasedTable.create();
 
     @Override
     public String getCharacterOfCurrentKey() {
-        Key currentKey = keyPad.get(x, y);
-        return currentKey.getCharacter();
+        return keyPad.get(x, y);
     }
 
-    protected void addKey(int x, int y, String value) {
-        keyPad.put(x,y,new Key(value));
+    void addKey(int x, int y, String value) {
+        keyPad.put(x,y,value);
     }
 
     @Override

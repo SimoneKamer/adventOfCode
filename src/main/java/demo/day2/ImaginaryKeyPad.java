@@ -5,17 +5,17 @@ public class ImaginaryKeyPad extends AbstractKeyPad {
 
     public ImaginaryKeyPad() {
         super(1,1);
-        keyPad.put(0,0,new Key("1"));
-        keyPad.put(1,0,new Key("2"));
-        keyPad.put(2,0,new Key("3"));
+        addKey(0,0,"1");
+        addKey(1,0,"2");
+        addKey(2,0,"3");
 
-        keyPad.put(0,1,new Key("4"));
-        keyPad.put(1,1,new Key("5"));
-        keyPad.put(2,1,new Key("6"));
+        addKey(0,1,"4");
+        addKey(1,1,"5");
+        addKey(2,1,"6");
 
-        keyPad.put(0,2,new Key("7"));
-        keyPad.put(1,2,new Key("8"));
-        keyPad.put(2,2,new Key("9"));
+        addKey(0,2,"7");
+        addKey(1,2,"8");
+        addKey(2,2,"9");
     }
 
 }
