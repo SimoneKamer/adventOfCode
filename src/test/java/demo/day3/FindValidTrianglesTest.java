@@ -30,7 +30,6 @@ public class FindValidTrianglesTest {
 
     @Test
     public void findValidTriangles() throws Exception {
-        Triangle triangle = new Triangle(10,15,11);
-        assertThat(calculator.countValidTriangles(triangle),is(1));
+        assertThat(calculator.countValidTriangles("10 15    11"),is(1));
     }
 }
