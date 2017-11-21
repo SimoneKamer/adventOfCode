@@ -6,23 +6,26 @@ import java.util.List;
 public class AlternativeTriangleCounter {
 
     public Integer countValidTriangles(String specifications) {
+        Integer numberOfValidTriangles = 0;
         List<String> triangleSpecifications = Arrays.asList(specifications.trim().split("\n\\s+|\n|\\s+"));
 
-        Integer numberOfValidTriangles = 0;
-
         while (!triangleSpecifications.isEmpty()){
-        for (int i = 0; i < 3 ; i++) {
-            Integer a = Integer.parseInt(triangleSpecifications.get(i));
-            Integer b = Integer.parseInt(triangleSpecifications.get(3 + i));
-            Integer c = Integer.parseInt(triangleSpecifications.get(6 + i));
-            Triangle triangle = new Triangle(a, b, c);
+        for (int column = 0; column < 3 ; column++) {
+            Triangle triangle = tryToMakeTriangle(triangleSpecifications, column);
             if (triangle.isPossible()) {
                 numberOfValidTriangles++;
             }
         }
-            triangleSpecifications = triangleSpecifications.subList(9, triangleSpecifications.size());
+        triangleSpecifications = triangleSpecifications.subList(9, triangleSpecifications.size());
     }
         return numberOfValidTriangles;
+    }
+
+    private Triangle tryToMakeTriangle(List<String> triangleSpecifications, int i) {
+        Integer a = Integer.parseInt(triangleSpecifications.get(i));
+        Integer b = Integer.parseInt(triangleSpecifications.get(3 + i));
+        Integer c = Integer.parseInt(triangleSpecifications.get(6 + i));
+        return new Triangle(a, b, c);
     }
 
     public static void main(String[] args) {
