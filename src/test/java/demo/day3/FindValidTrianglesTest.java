@@ -7,7 +7,7 @@ import static org.hamcrest.Matchers.is;
 
 public class FindValidTrianglesTest {
 
-    TriangleCounter calculator = new TriangleCounter();
+    private TriangleCounter counter = new TriangleCounter();
 
     @Test
     public void itShouldCheckIfSumOfSidesIsGreaterThanThirdSide() throws Exception {
@@ -30,10 +30,10 @@ public class FindValidTrianglesTest {
 
     @Test
     public void findValidTriangles() throws Exception {
-        assertThat(calculator.countValidTriangles("10 15    11"),is(1));
+        assertThat(counter.countValidTriangles("10 15    11"),is(1));
     }
 
-    AlternativeTriangleCounter newCounter = new AlternativeTriangleCounter();
+    private AlternativeTriangleCounter newCounter = new AlternativeTriangleCounter();
 
     @Test
     public void findValidTrianglesTheNewWayWithThreeRows() throws Exception {
