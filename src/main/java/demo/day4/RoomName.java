@@ -1,15 +1,22 @@
 package demo.day4;
 
+import java.util.Arrays;
+
 public class RoomName {
-    public RoomName() {
+    String letterCode;
+    Integer sectorID;
+    String checksum;
 
+    public RoomName(String letterCode, Integer sectorID, String checksum) {
+        this.letterCode = letterCode;
+        this.sectorID = sectorID;
+        this.checksum = checksum;
     }
 
-    public void add(String encryptedRoomName) {
 
-    }
 
     public boolean isARealRoom() {
-        return true;
+
+        return (true);
     }
 }
