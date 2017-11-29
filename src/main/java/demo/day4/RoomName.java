@@ -62,10 +62,19 @@ class RoomName {
         return sectorID;
     }
 
+    String getLetterCode() {
+        return letterCode;
+    }
+
     boolean isARealRoom() {
         String generatedCheckSum = generateCheckSum();
         return (generatedCheckSum.equals(checksum));
     }
 
 
+    public void decryptRoomName() {
+        CaesarDecryptor decryptor = new CaesarDecryptor();
+        // - wordt spatie - niet toegepast
+        letterCode = decryptor.decryptString(letterCode,sectorID);
+    }
 }

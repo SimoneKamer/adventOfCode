@@ -36,4 +36,15 @@ public class FindRealRoomsTest {
         RoomName roomName = extractor.extract("totally-real-room-200[decoy]");
         assertThat(roomName.isARealRoom(),is(false));
     }
+
+    @Test
+    public void itShouldDecypherABintoBC() throws Exception {
+        CaesarDecryptor decryptor = new CaesarDecryptor();
+        assertThat(decryptor.decryptString("ab",1), is ("bc"));
+    }
+
+    @Test
+    public void itShouldFindNorthPoleRoom() throws Exception {
+
+    }
 }
