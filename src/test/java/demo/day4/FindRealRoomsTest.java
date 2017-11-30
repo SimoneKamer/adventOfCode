@@ -43,8 +43,4 @@ public class FindRealRoomsTest {
         assertThat(decryptor.decryptString("ab",1), is ("bc"));
     }
 
-    @Test
-    public void itShouldFindNorthPoleRoom() throws Exception {
-
-    }
 }

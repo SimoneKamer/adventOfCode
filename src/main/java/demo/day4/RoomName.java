@@ -16,46 +16,39 @@ class RoomName {
     }
 
     private String generateCheckSum(){
+        Map<Character, Integer> countedCharacterMap = new HashMap<>();
+        countEveryCharacter(countedCharacterMap);
+        TreeSet<Map.Entry<Character, Integer>> sortedEntries = sortCharactersByOccurrence(countedCharacterMap);
+        Iterator<Map.Entry<Character, Integer>> iterator = sortedEntries.iterator();
+        return buildGeneratedChecksum(iterator);
+    }
+
+    private String buildGeneratedChecksum(Iterator<Map.Entry<Character, Integer>> iterator) {
         StringBuilder generatedCheckSum = new StringBuilder();
-        List<Occurrence> countedCharacterList = new ArrayList<>();
-
-        countEveryCharacter(countedCharacterList);
-
-        Collections.sort(countedCharacterList);
         for (int i = 0; i < 5; i++) {
-            generatedCheckSum.append(countedCharacterList.get(i).getLetter());
+            Map.Entry<Character, Integer> next = iterator.next();
+            generatedCheckSum.append(next.getKey());
         }
-
         return generatedCheckSum.toString();
     }
 
-    private void countEveryCharacter(List<Occurrence> countedCharacterList) {
-        while (letterCode.length() > 0){
-            String c = String.valueOf(letterCode.charAt(0));
-                Occurrence currentCharacter = new Occurrence(c,timesInLetterCode(c));
-                countedCharacterList.add(currentCharacter);
-                removeFromLetterCode(c);
-        }
+    private TreeSet<Map.Entry<Character, Integer>> sortCharactersByOccurrence(Map<Character, Integer> countedCharacterMap) {
+        Set<Map.Entry<Character, Integer>> entries = countedCharacterMap.entrySet();
+        TreeSet<Map.Entry<Character, Integer>> sortedEntries = new TreeSet<>(new OccurrenceComparator());
+        sortedEntries.addAll(entries);
+        return sortedEntries;
     }
 
-    private Integer timesInLetterCode(String c) {
-        int occurrence = 0;
-        for (int i = 0; i <letterCode.length() ; i++) {
-            if (String.valueOf(letterCode.charAt(i)).equals(c)){
-                occurrence ++;
-            }
-        }
-        return occurrence;
-    }
-
-    private void removeFromLetterCode(String c) {
-        for (int i = 0; i <letterCode.length() ; i++) {
-            if (String.valueOf(letterCode.charAt(i)).equals(c)) {
-                letterCode = letterCode.replace("" + c, "");
+    private void countEveryCharacter(Map<Character, Integer> countedCharacterMap) {
+        for (char c : letterCode.toCharArray()) {
+            if (countedCharacterMap.containsKey(c)) {
+                Integer timesFound = countedCharacterMap.get(c);
+                countedCharacterMap.put(c, (timesFound+1));
+            } else {
+                countedCharacterMap.put(c,1);
             }
         }
     }
-
 
 
     Integer getSectorID() {

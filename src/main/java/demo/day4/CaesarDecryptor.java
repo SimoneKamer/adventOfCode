@@ -19,6 +19,4 @@ public class CaesarDecryptor {
         return (char) (shifted + asciiShift);
     }
 
-
-
 }
