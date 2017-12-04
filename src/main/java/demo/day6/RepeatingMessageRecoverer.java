@@ -14,7 +14,7 @@ public class RepeatingMessageRecoverer {
                 for (String messageLine : messageLines) {
                     counter.countEveryCharacter(messageLine.charAt(i));
                 }
-                decodedMessage.append(counter.getMostCommunicatedCharacter());
+                decodedMessage.append(counter.getLeastCommunicatedCharacter());
             }
         return decodedMessage.toString();
     }

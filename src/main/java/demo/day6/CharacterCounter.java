@@ -22,9 +22,20 @@ class CharacterCounter {
         int maxValueInMap=(Collections.max(countedCharacterMap.values()));
         for (Map.Entry<Character, Integer> entry : countedCharacterMap.entrySet()) {
             if (entry.getValue()==maxValueInMap) {
-                mostFoundCharacter = (entry.getKey()); 
+                mostFoundCharacter = (entry.getKey());
             }
         }
         return mostFoundCharacter;
+    }
+
+    public Character getLeastCommunicatedCharacter () {
+        Character leastFoundCharacter = '\0';
+        int minValueInMap=(Collections.min(countedCharacterMap.values()));
+        for (Map.Entry<Character, Integer> entry : countedCharacterMap.entrySet()) {
+            if (entry.getValue()==minValueInMap) {
+                leastFoundCharacter = (entry.getKey());
+            }
+        }
+        return leastFoundCharacter;
     }
 }

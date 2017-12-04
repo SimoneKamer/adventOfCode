@@ -29,4 +29,6 @@ public class RepeatingMessageRecovererTest {
                 "enarar";
         assertThat(recoverer.recoverMessage(message), is("easter"));
     }
+
+
 }
