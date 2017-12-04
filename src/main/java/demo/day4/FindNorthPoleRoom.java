@@ -6,7 +6,6 @@ import java.util.List;
 public class FindNorthPoleRoom {
     public static void main(String[] args) {
         RoomnameExtractor extractor = new RoomnameExtractor();
-        Integer sumOfSectorIDs = 0;
         String listOfRooms = "aczupnetwp-dnlgpyrpc-sfye-dstaatyr-561[patyc]\n" +
                 "jsehsyafy-vqw-ljsafafy-866[nymla]\n" +
                 "tyepcyletzylw-ncjzrpytn-prr-opawzjxpye-743[cnrdl]\n" +
@@ -1002,11 +1001,9 @@ public class FindNorthPoleRoom {
         for (String room : roomNames) {
             RoomName roomName = extractor.extract(room);
             if (roomName.isARealRoom()) {
-                RoomName roomName2 = extractor.extract(room);
-                roomName2.decryptRoomName();
-//                System.out.println(roomName2.getLetterCode());
-                if (roomName2.getLetterCode().equals("northpoleobjectstorage")){
-                    System.out.println(roomName2.getSectorID());
+                roomName.decryptRoomName();
+                if (roomName.getLetterCode().equals("northpoleobjectstorage")){
+                    System.out.println(roomName.getSectorID());
                 }
             }
         }
